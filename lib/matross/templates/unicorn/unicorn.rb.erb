@@ -2,6 +2,8 @@ app_path            = "<%= current_path %>"
 
 working_directory   "#{app_path}"
 pid                 "#{app_path}/tmp/pids/unicorn.pid"
+stderr_path "#{shared_path}/log/error_unicorn.log"
+stdout_path "#{shared_path}/log/unicorn.log"
 
 listen              "/tmp/unicorn.<%= application %>.sock"
 worker_processes    <%= unicorn_workers %>
