@@ -16,7 +16,7 @@ namespace :deploy do
 
       # Clean up temporary local assets
       run_locally <<-CMD.gsub(/^\s+/, '')
-        rm public/assets.tar.bz2 &&
+        rm public/assets.tar.bz2 && rm -rf public/assets &&
         RAILS_ENV=#{rails_env.to_s.shellescape} #{rake} assets:clean
       CMD
     end
